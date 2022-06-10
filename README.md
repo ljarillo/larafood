@@ -3,3 +3,9 @@
 ## Projeto LaraFood
 
 Projeto clone do iFood feito em Laravel
+
+
+## Comandos para inciar o Projeto
+
+- php artisan adminlte:install
+
