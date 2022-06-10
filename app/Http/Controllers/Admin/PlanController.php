@@ -74,7 +74,7 @@ class PlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $url
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -97,7 +97,7 @@ class PlanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $url
      * @return \Illuminate\Http\Response
      */
     public function destroy($url)
@@ -111,5 +111,22 @@ class PlanController extends Controller
         $plan->delete();
 
         return redirect()->route('plans.index');
+    }
+
+    /**
+     * Busca de Planos.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+        $plans = $this->repository->search($request->filter);
+
+        return view('admin.pages.plans.index', [
+            'plans' => $plans,
+            'filters' => $filters
+        ]);
     }
 }

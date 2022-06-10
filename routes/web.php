@@ -11,6 +11,7 @@
 |
 */
 
+Route::any('admin/plans/search', 'Admin\PlanController@search')->name('plans.search');
 Route::resource('admin/plans', Admin\PlanController::class);
 
 Route::get('/', function () {
