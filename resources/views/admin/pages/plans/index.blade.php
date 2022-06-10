@@ -3,7 +3,12 @@
 @section('title', 'Planos')
 
 @section('content_header')
-    <h1>Planos <a href="{{ route('plans.create') }}" class="btn btn-dark">ADD</a> </h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}" class="active">Planos</a></li>
+    </ol>
+
+    <h1>Planos <a href="{{ route('plans.create') }}" class="btn btn-dark"><i class="fa fa-plus-square"></i> Novo Plano</a> </h1>
 @stop
 
 @section('content')
@@ -14,7 +19,7 @@
                 <input type="text" name="filter" placeholder="Nome" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 <div class="input-group">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-dark">Filtrar</button>
+                        <button type="submit" class="btn btn-dark"><i class="fa fa-filter"></i> Filtrar</button>
                     </div>
                 </div>
             </form>
@@ -25,7 +30,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Preço</th>
-                    <th style="width: 50px">Ação</th>
+                    <th style="width: 100px">Ação</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,7 +39,7 @@
                     <td>{{ $plan->name }}</td>
                     <td>R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
                     <td>
-                        <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning">Ver</a>
+                        <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning"><i class="fa fa-eye"></i> Ver</a>
                     </td>
                 </tr>
                 @endforeach

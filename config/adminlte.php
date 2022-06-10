@@ -226,8 +226,9 @@ return [
 
     'menu' => [
         [
-            'text'         => 'Planos',
+            'text'  => 'Planos',
             'url'   => 'admin/plans',
+            'icon' => 'fa fa-scroll'
         ]
     ],
 
