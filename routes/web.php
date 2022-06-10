@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('admin/plans', 'Admin\PlanController@index')->name('plans.index');
+Route::resource('admin/plans', Admin\PlanController::class);
 
 Route::get('/', function () {
     return view('welcome');
