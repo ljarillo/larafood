@@ -25,12 +25,12 @@
             </form>
         </div>
         <div class="card-body">
-            <table class="table table-condensed">
-                <thead>
+            <table class="table">
+                <thead class="thead-light">
                 <tr>
                     <th>Nome</th>
                     <th>Preço</th>
-                    <th style="width: 100px">Ação</th>
+                    <th class="text-center" style="width: 20%">Ação</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,9 +38,10 @@
                 <tr>
                     <td>{{ $plan->name }}</td>
                     <td>R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
-                    <td>
-                        <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-warning"><i class="fa fa-eye"></i> Ver</a>
-                    </td>
+                    <td class="text-center">
+                        <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
+                        <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
+                    </tdtext-right>
                 </tr>
                 @endforeach
                 </tbody>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PhpParser\Node\Scalar\String_;
 
 class PlanController extends Controller
 {
@@ -57,7 +58,7 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $url
      * @return \Illuminate\Http\Response
      */
     public function show($url)
@@ -77,21 +78,35 @@ class PlanController extends Controller
      * @param  string  $url
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($url)
     {
-        //
+        $plan = $this->repository->where('url' , $url)->first();
+
+        if(!$plan){
+            return redirect()->back();
+        }
+
+        return view('admin.pages.plans.edit', ['plan' => $plan]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $url
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $url)
     {
-        //
+        $plan = $this->repository->where('url' , $url)->first();
+
+        if(!$plan){
+            return redirect()->back();
+        }
+
+        $plan->update($request->all());
+
+        return redirect()->route('plans.index');
     }
 
     /**
