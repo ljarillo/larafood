@@ -100,8 +100,16 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($url)
     {
-        //
+        $plan = $this->repository->where('url' , $url)->first();
+
+        if(!$plan){
+            return redirect()->back();
+        }
+
+        $plan->delete();
+
+        return redirect()->route('plans.index');
     }
 }
