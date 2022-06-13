@@ -83,24 +83,42 @@ class DetailPlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $urlPlan
+     * @param  int  $idDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($urlPlan, $idDetail)
     {
-        //
+        $plan = $this->plan->where('url', $urlPlan)->first();
+        $detail = $this->repository->find($idDetail);
+        if(!$plan || !$detail){
+            redirect()->back();
+        }
+        return view('admin.pages.plans.details.edit', [
+            'plan' => $plan,
+            'detail' => $detail
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $urlPlan
+     * @param  id  $idDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $urlPlan, $idDetail)
     {
-        //
+        $plan = $this->plan->where('url', $urlPlan)->first();
+        $detail = $this->repository->find($idDetail);
+        if(!$plan || !$detail){
+            redirect()->back();
+        }
+
+        $detail->update($request->all());
+
+        return redirect()->route('details.index', $plan->url);
     }
 
     /**

@@ -18,7 +18,7 @@ Route::prefix('admin')
         /**
          * Routes Details Plans
          */
-        Route::resource('plans/{ur}/details', DetailPlanController::class);
+        Route::resource('plans/{url}/details', DetailPlanController::class);
 
         /**
          * Routes Plans

@@ -29,8 +29,8 @@
                     <tr>
                         <td>{{ $detail->name }}</td>
                         <td class="text-center">
-                            <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
-                            <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
+{{--                            <a href="{{ route('details.show', $plan->url) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>--}}
+                            <a href="{{ route('details.edit', [$plan->url, $detail->id]) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
                             </tdtext-right>
                     </tr>
                 @endforeach
