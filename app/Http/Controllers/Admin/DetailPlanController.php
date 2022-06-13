@@ -42,9 +42,14 @@ class DetailPlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($urlPlan)
     {
-        //
+        if(!$plan = $this->plan->where('url', $urlPlan)->first()){
+            redirect()->back();
+        }
+        return view('admin.pages.plans.details.create', [
+            'plan' => $plan
+        ]);
     }
 
     /**
@@ -53,9 +58,15 @@ class DetailPlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $urlPlan)
     {
-        //
+        if(!$plan = $this->plan->where('url', $urlPlan)->first()){
+            redirect()->back();
+        }
+
+        $plan->details()->create($request->all());
+
+        return redirect()->route('details.index', $plan->url);
     }
 
     /**
