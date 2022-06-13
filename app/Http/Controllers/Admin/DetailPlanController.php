@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateDetailPlan;
 use App\Models\DetailPlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
@@ -55,10 +56,10 @@ class DetailPlanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreUpdateDetailPlan  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $urlPlan)
+    public function store(StoreUpdateDetailPlan $request, $urlPlan)
     {
         if(!$plan = $this->plan->where('url', $urlPlan)->first()){
             redirect()->back();
@@ -103,12 +104,12 @@ class DetailPlanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreUpdateDetailPlan  $request
      * @param  string  $urlPlan
      * @param  id  $idDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $urlPlan, $idDetail)
+    public function update(StoreUpdateDetailPlan $request, $urlPlan, $idDetail)
     {
         $plan = $this->plan->where('url', $urlPlan)->first();
         $detail = $this->repository->find($idDetail);

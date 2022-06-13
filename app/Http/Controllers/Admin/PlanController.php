@@ -43,7 +43,7 @@ class PlanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreUpdatePlan  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUpdatePlan $request)
@@ -89,7 +89,7 @@ class PlanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreUpdatePlan  $request
      * @param  string  $url
      * @return \Illuminate\Http\Response
      */
