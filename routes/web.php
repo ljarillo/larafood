@@ -16,6 +16,11 @@ Route::prefix('admin')
     ->group(function (){
 
         /**
+         * Routes Profiles
+         */
+        Route::resource('profiles', 'ACL\ProfileController');
+
+        /**
          * Routes Details Plans
          */
         Route::resource('plans/{url}/details', DetailPlanController::class);
@@ -24,7 +29,7 @@ Route::prefix('admin')
          * Routes Plans
          */
         Route::any('plans/search', 'PlanController@search')->name('plans.search');
-        Route::resource('plans', PlanController::class);
+        Route::resource('plans', 'PlanController');
 
         /**
          * Home Dashborad
