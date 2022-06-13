@@ -122,7 +122,9 @@ class PlanController extends Controller
 
         $plan->delete();
 
-        return redirect()->route('plans.index');
+        return redirect()
+            ->route('plans.index')
+            ->with('message', 'Plano deletado com sucesso');
     }
 
     /**

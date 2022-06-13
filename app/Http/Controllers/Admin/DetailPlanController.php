@@ -73,12 +73,22 @@ class DetailPlanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $urlPlan
+     * @param  int  $idDetail
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($urlPlan, $idDetail)
     {
-        //
+        $plan = $this->plan->where('url' , $urlPlan)->first();
+        $detail = $this->repository->find($idDetail);
+        if(!$plan || !$detail){
+            redirect()->back();
+        }
+
+        return view('admin.pages.plans.details.show', [
+            'plan' => $plan,
+            'detail' => $detail
+        ]);
     }
 
     /**
@@ -125,11 +135,22 @@ class DetailPlanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $urlPlan
+     * @param  id  $idDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($urlPlan, $idDetail)
     {
-        //
+        $plan = $this->plan->where('url', $urlPlan)->first();
+        $detail = $this->repository->find($idDetail);
+        if(!$plan || !$detail){
+            redirect()->back();
+        }
+
+        $detail->delete();
+
+        return redirect()
+            ->route('details.index', $plan->url)
+            ->with('message', 'Detalhe do Plano deletado com sucesso');
     }
 }

@@ -42,7 +42,7 @@
                         <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
                         <a href="{{ route('details.index', $plan->url) }}" class="btn btn-primary"><i class="fa fa-pen"></i> Detalhes</a>
                         <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
-                    </tdtext-right>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

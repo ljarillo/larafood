@@ -17,6 +17,7 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="card-body">
+            @include('admin.includes.alerts')
             <table class="table">
                 <thead class="thead-light">
                 <tr>
@@ -29,9 +30,14 @@
                     <tr>
                         <td>{{ $detail->name }}</td>
                         <td class="text-center">
-{{--                            <a href="{{ route('details.show', $plan->url) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>--}}
-                            <a href="{{ route('details.edit', [$plan->url, $detail->id]) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
-                            </tdtext-right>
+                            <form action="{{ route('details.destroy', [$plan->url, $detail->id]) }}" method="POST">
+                                <a href="{{ route('details.show', [$plan->url, $detail->id]) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
+                                <a href="{{ route('details.edit', [$plan->url, $detail->id]) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Deletar</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
