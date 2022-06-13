@@ -24,9 +24,10 @@
                 <li><b>Preço:</b> R$ {{ number_format($plan->price, 2, ',', '.') }}</li>
                 <li><b>Descrição:</b> {{ $plan->description }}</li>
             </ul>
-
         </div>
         <div class="card-footer">
+            @include('admin.includes.alerts')
+
             <form action="{{ route('plans.destroy', $plan->url) }}" method="POST">
                 @csrf
                 @method('DELETE')
