@@ -1,8 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', "Editar { $plan->name }")
+@section('title', "Editar plano { $plan->name }")
 
 @section('content_header')
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('plans.index') }}" >Perfis</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.edit', $plan->url) }}" class="active">Editar - {{ $plan->name }}</a></li>
+    </ol>
     <h1>Editar plano <b>{{ $plan->name }}</b></h1>
 @stop
 

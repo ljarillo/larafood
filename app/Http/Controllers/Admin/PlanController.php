@@ -43,13 +43,15 @@ class PlanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\StoreUpdatePlan  $request
+     * @param  \App\Http\Requests\StoreUpdatePlan  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUpdatePlan $request)
     {
         $this->repository->create($request->all());
-        return redirect()->route('plans.index');
+        return redirect()
+            ->route('plans.index')
+            ->with('message', 'Plano inserido com sucesso');
     }
 
     /**
@@ -89,7 +91,7 @@ class PlanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\StoreUpdatePlan  $request
+     * @param  \App\Http\Requests\StoreUpdatePlan  $request
      * @param  string  $url
      * @return \Illuminate\Http\Response
      */
@@ -103,7 +105,9 @@ class PlanController extends Controller
 
         $plan->update($request->all());
 
-        return redirect()->route('plans.index');
+        return redirect()
+            ->route('plans.index')
+            ->with('message', 'Plano editado com sucesso');
     }
 
     /**

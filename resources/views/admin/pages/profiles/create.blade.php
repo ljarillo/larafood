@@ -1,9 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar Novo Perfil')
+@section('title', 'Cadastrar novo perfil')
 
 @section('content_header')
-    <h1>Cadastrar Novo Perfil</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('profiles.index') }}">Perfil</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('profiles.create') }}" class="active">Novo</a></li>
+    </ol>
+    <h1>Cadastrar novo perfil</h1>
 @stop
 
 @section('content')

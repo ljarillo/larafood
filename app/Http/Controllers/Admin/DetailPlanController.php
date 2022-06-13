@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateDetailPlan;
 use App\Models\DetailPlan;
 use App\Models\Plan;
-use Illuminate\Http\Request;
 
 class DetailPlanController extends Controller
 {
@@ -56,7 +55,7 @@ class DetailPlanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\StoreUpdateDetailPlan  $request
+     * @param  \App\Http\Requests\StoreUpdateDetailPlan  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUpdateDetailPlan $request, $urlPlan)
@@ -67,7 +66,9 @@ class DetailPlanController extends Controller
 
         $plan->details()->create($request->all());
 
-        return redirect()->route('details.index', $plan->url);
+        return redirect()
+            ->route('details.index', $plan->url)
+            ->with('message', 'Detalhe do plano inserido com sucesso');
     }
 
     /**
@@ -114,7 +115,7 @@ class DetailPlanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\StoreUpdateDetailPlan  $request
+     * @param  \App\Http\Requests\StoreUpdateDetailPlan  $request
      * @param  string  $urlPlan
      * @param  id  $idDetail
      * @return \Illuminate\Http\Response
@@ -129,7 +130,9 @@ class DetailPlanController extends Controller
 
         $detail->update($request->all());
 
-        return redirect()->route('details.index', $plan->url);
+        return redirect()
+            ->route('details.index', $plan->url)
+            ->with('message', 'Detalhe do plano alterado com sucesso');
     }
 
     /**
@@ -151,6 +154,6 @@ class DetailPlanController extends Controller
 
         return redirect()
             ->route('details.index', $plan->url)
-            ->with('message', 'Detalhe do Plano deletado com sucesso');
+            ->with('message', 'Detalhe do plano deletado com sucesso');
     }
 }

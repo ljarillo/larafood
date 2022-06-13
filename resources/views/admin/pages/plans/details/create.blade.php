@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Adicionar novo detalhe do plano { $plan->name }")
+@section('title', "Cadastrar novo detalhe do plano { $plan->name }")
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -11,7 +11,7 @@
         <li class="breadcrumb-item active"><a href="{{ route('details.create', $plan->url) }}" class="active">Novo</a></li>
     </ol>
 
-    <h1>Adicionar novo detalhe do plano {{ $plan->name }}</h1>
+    <h1>Cadastrar novo detalhe do plano {{ $plan->name }}</h1>
 @stop
 
 @section('content')
