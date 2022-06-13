@@ -11,10 +11,18 @@
 |
 */
 
-Route::any('admin/plans/search', 'Admin\PlanController@search')->name('plans.search');
-Route::resource('admin/plans', Admin\PlanController::class);
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(function (){
 
-Route::get('admin', 'Admin\PlanController@index')->name('admin.index');
+        Route::any('plans/search', 'PlanController@search')->name('plans.search');
+        Route::resource('plans', PlanController::class);
+
+        Route::get('/', 'PlanController@index')->name('admin.index');
+});
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
