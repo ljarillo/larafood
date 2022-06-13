@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdatePlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use PhpParser\Node\Scalar\String_;
 
 class PlanController extends Controller
 {
@@ -47,7 +47,7 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePlan $request)
     {
         $data = $request->all();
         $data['url'] = Str::kebab($request->name);
@@ -96,7 +96,7 @@ class PlanController extends Controller
      * @param  string  $url
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $url)
+    public function update(StoreUpdatePlan $request, $url)
     {
         $plan = $this->repository->where('url' , $url)->first();
 
