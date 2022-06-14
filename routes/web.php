@@ -16,6 +16,12 @@ Route::prefix('admin')
     ->group(function (){
 
         /**
+         * Permissions x Profiles
+         */
+        Route::get('permissions/{id}/profiles', 'ACL\PermissionProfileController@profiles')
+            ->name('permissions.profiles');
+
+        /**
          * Profiles x Permissions
          */
         Route::get('profiles/{id}/permission/{idPermission}/detach', 'ACL\PermissionProfileController@detachPermissionsProfile')
