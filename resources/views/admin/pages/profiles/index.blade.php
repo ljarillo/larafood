@@ -41,6 +41,7 @@
                             <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
                             <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
                             <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-info"><i class="fa fa-lock"></i></a>
+                            <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-info"><i class="fa fa-scroll"></i></a>
                         </td>
                     </tr>
                 @endforeach
