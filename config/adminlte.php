@@ -239,6 +239,11 @@ return [
             'text'  => 'Permissões',
             'url'   => 'admin/permissions',
             'icon' => 'fa fa-lock'
+        ],
+        [
+            'text'  => 'Usuários',
+            'url'   => 'admin/users',
+            'icon' => 'fa fa-users'
         ]
     ],
 
