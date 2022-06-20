@@ -11,7 +11,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create([
+        $tenant = \App\Models\Tenant::first();
+
+        $tenant->users()->create([
             'name' => 'luis',
             'email' => 'ljarillo@gmail.com',
             'password' => bcrypt('123456')
