@@ -32,7 +32,7 @@
                     <th>Imagem</th>
                     <th>Título</th>
                     <th>Preço</th>
-                    <th class="text-center" style="width: 15%">Ação</th>
+                    <th class="text-center" style="width: 20%">Ação</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,6 +43,7 @@
                         <td>R$ {{ number_format($product->price, 2, ',', '.') }}</td>
                         <td class="text-center">
                             <a href="{{ route('products.show', $product->id) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
+                            <a href="{{ route('products.categories', $product->id) }}" class="btn btn-primary"><i class="fa fa-layer-group"></i> Categorias</a>
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
                         </td>
                     </tr>

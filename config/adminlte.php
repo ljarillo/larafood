@@ -248,7 +248,7 @@ return [
         [
             'text'  => 'Categorias',
             'url'   => 'admin/categories',
-            'icon' => 'fa fa-layer-group'
+            'icon' => 'fas fa-layer-group'
         ],
         [
             'text'  => 'Produtos',
