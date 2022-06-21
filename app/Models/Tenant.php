@@ -20,4 +20,9 @@ class Tenant extends Model
     {
         return $this->belongsTo(Tenant::class);
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 }
