@@ -226,6 +226,11 @@ return [
 
     'menu' => [
         [
+            'text'  => 'Usuários',
+            'url'   => 'admin/users',
+            'icon' => 'fa fa-users'
+        ],
+        [
             'text'  => 'Planos',
             'url'   => 'admin/plans',
             'icon' => 'fa fa-scroll'
@@ -239,11 +244,6 @@ return [
             'text'  => 'Permissões',
             'url'   => 'admin/permissions',
             'icon' => 'fa fa-lock'
-        ],
-        [
-            'text'  => 'Usuários',
-            'url'   => 'admin/users',
-            'icon' => 'fa fa-users'
         ],
         [
             'text'  => 'Categorias',
