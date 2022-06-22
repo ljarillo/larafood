@@ -226,39 +226,46 @@ return [
 
     'menu' => [
         [
-            'text'  => 'Usuários',
-            'url'   => 'admin/users',
-            'icon' => 'fa fa-users'
-        ],
-        [
             'text'  => 'Planos',
             'url'   => 'admin/plans',
-            'icon' => 'fa fa-scroll'
+            'icon' => 'fa fa-scroll',
+            'can'   => 'plans'
         ],
         [
             'text'  => 'Perfis',
             'url'   => 'admin/profiles',
-            'icon' => 'fa fa-address-book'
+            'icon' => 'fa fa-address-book',
+            'can'   => 'profiles'
         ],
         [
             'text'  => 'Permissões',
             'url'   => 'admin/permissions',
-            'icon' => 'fa fa-lock'
+            'icon' => 'fa fa-lock',
+            'can'   => 'permissions'
+        ],
+        [
+            'text'  => 'Usuários',
+            'url'   => 'admin/users',
+            'icon' => 'fa fa-users',
+            'can'   => 'users'
         ],
         [
             'text'  => 'Categorias',
             'url'   => 'admin/categories',
-            'icon' => 'fas fa-layer-group'
+            'icon' => 'fas fa-layer-group',
+            'can'   => 'categories'
         ],
         [
             'text'  => 'Produtos',
             'url'   => 'admin/products',
-            'icon' => 'fa fa-utensils'
+            'icon' => 'fa fa-utensils',
+            'can'   => 'products'
         ],
         [
             'text'  => 'Mesas',
             'url'   => 'admin/tables',
-            'icon' => 'fa fa-tablet'
+            'icon' => 'fa fa-tablet',
+            'can'   => 'tables'
         ]
     ],
 
