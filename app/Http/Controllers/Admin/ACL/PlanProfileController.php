@@ -11,10 +11,12 @@ use Illuminate\Http\Request;
 class PlanProfileController extends Controller
 {
     protected $profile, $plan;
-    public function __construct(Profile $profile, Plan $plan)
+    public function __construct(Plan $plan, Profile $profile)
     {
         $this->profile = $profile;
         $this->plan = $plan;
+
+        $this->middleware(['can:plans']);
     }
 
     /**
