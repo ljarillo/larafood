@@ -254,6 +254,11 @@ return [
             'text'  => 'Produtos',
             'url'   => 'admin/products',
             'icon' => 'fa fa-utensils'
+        ],
+        [
+            'text'  => 'Mesas',
+            'url'   => 'admin/tables',
+            'icon' => 'fa fa-tablet'
         ]
     ],
 
