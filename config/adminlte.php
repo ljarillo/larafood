@@ -226,6 +226,12 @@ return [
 
     'menu' => [
         [
+            'text'  => 'Empresas',
+            'url'   => 'admin/tenants',
+            'icon' => 'fa fa-building',
+            'can'   => 'tenants'
+        ],
+        [
             'text'  => 'Planos',
             'url'   => 'admin/plans',
             'icon' => 'fa fa-scroll',

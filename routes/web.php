@@ -37,6 +37,12 @@ Route::prefix('admin')
             ->name('categories.products');
 
         /**
+         * Routes Tenants
+         */
+        Route::any('tenants/search', 'TenantController@search')->name('tenants.search');
+        Route::resource('tenants', 'TenantController');
+
+        /**
          * Routes Products
          */
         Route::any('products/search', 'ProductController@search')->name('products.search');

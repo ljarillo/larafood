@@ -25,4 +25,13 @@ class Tenant extends Model
     {
         return $this->hasMany(Category::class);
     }
+
+    public function search($filter = null)
+    {
+        $results = $this->where('name', 'LIKE', "%{$filter}%")
+            ->latest()
+            ->paginate();
+
+        return $results;
+    }
 }
