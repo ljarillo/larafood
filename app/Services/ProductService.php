@@ -15,10 +15,10 @@ class ProductService
         $this->tenantService = $tenantService;
     }
 
-    public function getProductsByTenantUuid(string $uuid)
+    public function getProductsByTenantUuid(string $uuid, array $categories)
     {
         $tenant = $this->tenantService->getTenantByUuid($uuid);
 
-        return $this->productService->getProductsByTenantId($tenant->id);
+        return $this->productService->getProductsByTenantId($tenant->id, $categories);
     }
 }
