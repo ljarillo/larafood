@@ -8,6 +8,22 @@ class Permission extends Model
 {
     protected $fillable = ['name', 'description'];
 
+    /**
+     * Get Profiles
+     */
+    public function profiles()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
+
+    /**
+     * Get Roles
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
     public function search($filter = null)
     {
         $results = $this->where('name', $filter)
@@ -15,13 +31,5 @@ class Permission extends Model
             ->paginate();
 
         return $results;
-    }
-
-    /**
-     * Get Profiles
-     */
-    public function profiles()
-    {
-        return $this->belongsToMany(Profile::class);
     }
 }

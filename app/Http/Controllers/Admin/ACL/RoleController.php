@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Admin\ACL;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdatePermission;
-use App\Models\Permission;
+use App\Http\Requests\StoreUpdateRole;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class PermissionsController extends Controller
+class RoleController extends Controller
 {
     protected $repository;
-    public function __construct(Permission $permission)
+    public function __construct(Role $role)
     {
-        $this->repository = $permission;
+        $this->repository = $role;
 
-        $this->middleware(['can:permissions']);
+        $this->middleware(['can:roles']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,10 +24,10 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        $permissions = $this->repository->latest()->paginate();
+        $roles = $this->repository->latest()->paginate();
 
-        return view('admin.pages.permissions.index', [
-            'permissions' => $permissions
+        return view('admin.pages.roles.index', [
+            'roles' => $roles
         ]);
     }
 
@@ -37,21 +38,21 @@ class PermissionsController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.permissions.create');
+        return view('admin.pages.roles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUpdatePermission  $request
+     * @param  \App\Http\Requests\StoreUpdateRole  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUpdatePermission $request)
+    public function store(StoreUpdateRole $request)
     {
         $this->repository->create($request->all());
         return redirect()
-            ->route('permissions.index')
-            ->with('message', 'Permissão inserida com sucesso');
+            ->route('roles.index')
+            ->with('message', 'Perfil inserido com sucesso');
     }
 
     /**
@@ -62,11 +63,11 @@ class PermissionsController extends Controller
      */
     public function show($id)
     {
-        if(!$permission = $this->repository->find($id)){
+        if(!$role = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        return view('admin.pages.permissions.show', ['permission' => $permission]);
+        return view('admin.pages.roles.show', ['role' => $role]);
     }
 
     /**
@@ -77,31 +78,31 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        if(!$permission = $this->repository->find($id)){
+        if(!$role = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        return view('admin.pages.permissions.edit', ['permission' => $permission]);
+        return view('admin.pages.roles.edit', ['role' => $role]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUpdatePermission  $request
+     * @param  \App\Http\Requests\StoreUpdateRole  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUpdatePermission $request, $id)
+    public function update(StoreUpdateRole $request, $id)
     {
-        if(!$permission = $this->repository->find($id)){
+        if(!$role = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        $permission->update($request->all());
+        $role->update($request->all());
 
         return redirect()
-            ->route('permissions.index')
-            ->with('message', 'Permissão alterada com sucesso');
+            ->route('roles.index')
+            ->with('message', 'Perfil alterado com sucesso');
     }
 
     /**
@@ -112,15 +113,15 @@ class PermissionsController extends Controller
      */
     public function destroy($id)
     {
-        if(!$permission = $this->repository->find($id)){
+        if(!$role = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        $permission->delete();
+        $role->delete();
 
         return redirect()
-            ->route('permissions.index')
-            ->with('message', 'Permissão deletada com sucesso');
+            ->route('roles.index')
+            ->with('message', 'Perfil deletado com sucesso');
     }
 
     /**
@@ -132,10 +133,10 @@ class PermissionsController extends Controller
     public function search(Request $request)
     {
         $filters = $request->except('_token');
-        $permissions = $this->repository->search($request->filter);
+        $roles = $this->repository->search($request->filter);
 
-        return view('admin.permissions.profiles.index', [
-            'permissions' => $permissions,
+        return view('admin.pages.roles.index', [
+            'roles' => $roles,
             'filters' => $filters
         ]);
     }

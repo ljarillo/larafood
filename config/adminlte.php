@@ -228,31 +228,37 @@ return [
         [
             'text'  => 'Empresas',
             'url'   => 'admin/tenants',
-            'icon' => 'fa fa-building',
+            'icon' => 'fas fa-building',
             'can'   => 'tenants'
         ],
         [
             'text'  => 'Planos',
             'url'   => 'admin/plans',
-            'icon' => 'fa fa-scroll',
+            'icon' => 'fas fa-scroll',
             'can'   => 'plans'
         ],
         [
             'text'  => 'Perfis',
             'url'   => 'admin/profiles',
-            'icon' => 'fa fa-address-book',
+            'icon' => 'fas fa-address-book',
             'can'   => 'profiles'
         ],
         [
             'text'  => 'Permissões',
             'url'   => 'admin/permissions',
-            'icon' => 'fa fa-lock',
+            'icon' => 'fas fa-lock',
             'can'   => 'permissions'
+        ],
+        [
+            'text'  => 'Cargos',
+            'url'   => 'admin/roles',
+            'icon' => 'fas fa-address-card',
+            'can'   => 'roles'
         ],
         [
             'text'  => 'Usuários',
             'url'   => 'admin/users',
-            'icon' => 'fa fa-users',
+            'icon' => 'fas fa-users',
             'can'   => 'users'
         ],
         [
@@ -264,13 +270,13 @@ return [
         [
             'text'  => 'Produtos',
             'url'   => 'admin/products',
-            'icon' => 'fa fa-utensils',
+            'icon' => 'fas fa-utensils',
             'can'   => 'products'
         ],
         [
             'text'  => 'Mesas',
             'url'   => 'admin/tables',
-            'icon' => 'fa fa-tablet',
+            'icon' => 'fas fa-tablet',
             'can'   => 'tables'
         ]
     ],
