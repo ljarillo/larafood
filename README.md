@@ -24,14 +24,18 @@ Projeto clone do iFood feito em Laravel
       - Profile: Pedidos
         - Permission: pedidos
 
-- User: Luís
+- User: Roberto 
   - Role: Admin
     - Permission: fin_view
     - Permission: fin_cad
     - Permission: fin_del
-  - Role: Editor
     - Permission: prod_view
     - Permission: prod_cad
     - Permission: prod_del
-  - Role: Financeiro
     - Permission: pedidos
+
+- User: Ana
+    - Role: Editor
+        - Permission: prod_view
+        - Permission: prod_cad
+        - Permission: prod_del
