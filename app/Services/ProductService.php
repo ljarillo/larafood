@@ -7,18 +7,23 @@ use App\Repositories\Contracts\TenantRepositoryInterface;
 
 class ProductService
 {
-    protected $productService, $tenantService;
+    protected $productRepository, $tenantRepository;
 
-    public function __construct(ProductRepositoryInterface $productService, TenantRepositoryInterface $tenantService)
+    public function __construct(ProductRepositoryInterface $productRepository, TenantRepositoryInterface $tenantRepository)
     {
-        $this->productService = $productService;
-        $this->tenantService = $tenantService;
+        $this->productRepository = $productRepository;
+        $this->tenantRepository = $tenantRepository;
     }
 
     public function getProductsByTenantUuid(string $uuid, array $categories)
     {
-        $tenant = $this->tenantService->getTenantByUuid($uuid);
+        $tenant = $this->tenantRepository->getTenantByUuid($uuid);
 
-        return $this->productService->getProductsByTenantId($tenant->id, $categories);
+        return $this->productRepository->getProductsByTenantId($tenant->id, $categories);
+    }
+
+    public function getProductByFlag(string $flag)
+    {
+        return $this->productRepository->getProductByFlag($flag);
     }
 }
