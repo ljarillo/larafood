@@ -4,6 +4,7 @@ Route::group([
     'prefix' => 'v1',
     'namespace' => 'Api'
 ], function() {
+
     Route::get('/tenants/{uuid}', 'TenantApiController@show');
     Route::get('/tenants', 'TenantApiController@index');
 
@@ -17,6 +18,8 @@ Route::group([
     Route::get('/products', 'ProductApiController@productsByTenant');
 
     Route::post('/client', 'Auth\RegisterController@store');
+
+    Route::post('/sanctum/token', 'Auth\AuthClientController@auth');
 });
 
 
