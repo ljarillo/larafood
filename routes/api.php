@@ -29,6 +29,8 @@ Route::group([
 
     Route::post('/client', 'Auth\RegisterController@store');
 
+    Route::post('/orders', 'Auth\OrderApiController@store');
+    Route::get('/orders/{identify}', 'Auth\OrderApiController@show');
 
 });
 
