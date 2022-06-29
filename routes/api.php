@@ -5,6 +5,15 @@ Route::group([
     'namespace' => 'Api'
 ], function() {
 
+    Route::post('/sanctum/token', 'Auth/AuthClientController@auth');
+    Route::group([
+        'middleware' => ['auth:sanctum']
+    ], function() {
+
+        Route::get('/me', 'AuthClientController@me');
+
+    });
+
     Route::get('/tenants/{uuid}', 'TenantApiController@show');
     Route::get('/tenants', 'TenantApiController@index');
 
@@ -19,7 +28,7 @@ Route::group([
 
     Route::post('/client', 'Auth\RegisterController@store');
 
-    Route::post('/sanctum/token', 'Auth\AuthClientController@auth');
+
 });
 
 
