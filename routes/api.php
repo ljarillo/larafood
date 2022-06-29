@@ -5,12 +5,13 @@ Route::group([
     'namespace' => 'Api'
 ], function() {
 
-    Route::post('/sanctum/token', 'Auth/AuthClientController@auth');
+    Route::post('/sanctum/token', 'Auth\AuthClientController@auth');
     Route::group([
         'middleware' => ['auth:sanctum']
     ], function() {
 
-        Route::get('/me', 'AuthClientController@me');
+        Route::get('/auth/me', 'Auth\AuthClientController@me');
+        Route::post('/auth/logout', 'Auth\AuthClientController@logout');
 
     });
 
