@@ -8,7 +8,7 @@ class Evaluation extends Model
 {
     protected $table = 'order_evaluations';
 
-    protected $fillable = [ ];
+    protected $fillable = ['client_id', 'order_id', 'stars', 'comment'];
 
     public function order()
     {
