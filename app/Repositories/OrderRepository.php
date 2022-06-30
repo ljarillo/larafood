@@ -33,8 +33,8 @@ class OrderRepository implements OrderRepositoryInterface
             'comment' => $comment,
         ];
 
-        if ($clientId) $data['clientId'] = $clientId;
-        if ($tableId) $data['tableId'] = $tableId;
+        if ($clientId) $data['client_id'] = $clientId;
+        if ($tableId) $data['table_id'] = $tableId;
 
         $order = $this->entity->create($data);
 

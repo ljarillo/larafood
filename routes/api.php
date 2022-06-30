@@ -13,6 +13,8 @@ Route::group([
         Route::get('/auth/me', 'Auth\AuthClientController@me');
         Route::post('/auth/logout', 'Auth\AuthClientController@logout');
 
+        Route::post('/auth/orders', 'OrderApiController@store');
+
     });
 
     Route::get('/tenants/{uuid}', 'TenantApiController@show');
