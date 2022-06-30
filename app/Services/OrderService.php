@@ -49,6 +49,8 @@ class OrderService
             $tableId
         );
 
+        $this->orderRepository->registerProductsOrder($order->id, $productsOrder);
+
         return $order;
     }
 
