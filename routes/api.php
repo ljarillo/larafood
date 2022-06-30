@@ -13,6 +13,7 @@ Route::group([
         Route::get('/auth/me', 'Auth\AuthClientController@me');
         Route::post('/auth/logout', 'Auth\AuthClientController@logout');
 
+        Route::get('/auth/my-orders', 'OrderApiController@myOrders');
         Route::post('/auth/orders', 'OrderApiController@store');
 
     });
