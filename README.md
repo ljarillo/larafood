@@ -7,9 +7,11 @@ Projeto clone do iFood feito em Laravel
 
 ## Comandos para inciar o Projeto
 
+- php artisan key:generate
 - composer install
-- php artisan adminlte:install
 - php artisan migrate
+- php artisan telescope:publish
+- php artisan storage:link
 
 ### Exemplo de permissões cruzadas Plan x Role (ACL)
 - User: Luís
