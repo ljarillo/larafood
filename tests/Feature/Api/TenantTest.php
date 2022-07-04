@@ -1,10 +1,8 @@
 <?php
 
-namespace Tests\Feature;
+namespace Api;
 
 use App\Models\Tenant;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class TenantTest extends TestCase
@@ -50,4 +48,6 @@ class TenantTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+
 }
