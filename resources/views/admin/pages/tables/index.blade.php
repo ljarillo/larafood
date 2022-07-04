@@ -31,7 +31,7 @@
                 <tr>
                     <th>Identificação</th>
                     <th>Descrição</th>
-                    <th class="text-center" style="width: 15%">Ação</th>
+                    <th class="text-center" style="width: 20%">Ação</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,6 +40,7 @@
                         <td>{{ $table->identify }}</td>
                         <td>{{ $table->description }}</td>
                         <td class="text-center">
+                            <a href="{{ route('tables.qrcode', $table->identify) }}" class="btn btn-default" target="_blank"><i class="fa fa-qrcode"></i> QrCode</a>
                             <a href="{{ route('tables.show', $table->id) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
                             <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
                         </td>
