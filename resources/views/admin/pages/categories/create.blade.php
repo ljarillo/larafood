@@ -5,7 +5,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Usuários</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categoria</a></li>
         <li class="breadcrumb-item active"><a href="{{ route('categories.create') }}" class="active">Novo</a></li>
     </ol>
     <h1>Cadastrar nova categoria</h1>
